@@ -9,3 +9,5 @@ and not wasting time with "the environment" of your program.  The second intenti
 forth novices see examples  of integer and general Forth math, an initiation to astronomy, 
 and also to learn  how to  draw  function   outputs  to the screen. Would love to see
 people adding functions to this basic Planetarium. Enjoy !
+
+https://github.com/PeterForth/Planetarium/blob/master/planetarium1.jpg
