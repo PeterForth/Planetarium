@@ -82,8 +82,6 @@ vocabulary graphics
 only forth also graphics definitions
 
 
-
-
 \ 0 255 0 rgb newcolor: black \ \ ( turtle ) 32000 do test
 
 0 0 0 palettergb new-color  current-color
@@ -207,7 +205,7 @@ create &InfoRect  4 cells allot    ( - &InfoRect )
 : lineto        ( x y -- )
 \    way-to-color newcolor: current-color
 \    current-color LineColor: CurrentDC
-     way-to-color pick-a-color gethandle: CurrentDC Call SetTextColor drop
+    way-to-color pick-a-color gethandle: CurrentDC Call SetTextColor drop
     2dup LineTo: CurrentDC to prev-y  to prev-x ;
 
 
@@ -519,7 +517,6 @@ graph-init    \  <<<<<----- WITHOUT THIS, IT WILL NOT SHOW ANYTHING.... sin esto
 600 15 s"  GRAPHICS MODE ON " wtype 2drop
 
 
-
 \  : cols          ( -- n1 )               \ current screen columns
 \  : rows          ( -- n1 )               \ current screen rows
 \ CR  .( ROWS = )  ROWS .  \ CR  .( COLS = )  COLS .   CR
@@ -581,11 +578,6 @@ RM0 13 AT-XY ." Neptune:60,190.03days(164.8 years)"  ;
 
 
 \ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% comet  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-((
-        II sin     4 *  2/    distearth  /  sunpx +
-                               II cos    distearth              /  sunpy +    theearth
-))
- \  II 4- sin    ( SIN + )  4 *  2/ distearth  /  sunpx +      II 4- cos    (  COS + )         distearth / sunpy +     ROTATEXY
 
 
  II 4- sin    ( SIN + )  4 *  2/ \
@@ -619,7 +611,7 @@ ipmercury 4-  sin 4 *  2/  distmercury /  sunpx +        ipmercury  4-     cos  
 
 \  #############################    JUPITER  ####################################
   II  s>f  11.9e0  f/ f>s  to  ipjupiter
-                                                     iPJUPITER sin 4 *  2/  distjupiter / sunpx +       iPJUPITER  cos   distjupiter /  sunpy +  thejupiter
+                   iPJUPITER sin 4 *  2/  distjupiter / sunpx +       iPJUPITER  cos   distjupiter /  sunpy +  thejupiter
 
   iPJUPITER 4- sin 4 *  2/  distjupiter / sunpx +       iPJUPITER 4- cos   distjupiter /  sunpy +  P7
 
@@ -628,12 +620,10 @@ ipmercury 4-  sin 4 *  2/  distmercury /  sunpx +        ipmercury  4-     cos  
 \  #############################     SATURN  ####################################
 
   II  s>f  29.5e0  f/ f>s  to  IPsaturn
-                                                     IPsaturn   sin 4 *  2/   distsaturn / sunpx +       IPsaturn  cos   distsaturn /  sunpy +  thesaturn
+                    IPsaturn   sin 4 *  2/   distsaturn / sunpx +       IPsaturn  cos   distsaturn /  sunpy +  thesaturn
 
 
     IPsaturn 4-  sin 4 *  2/   distsaturn / sunpx +       IPsaturn 4- cos   distsaturn /  sunpy +  p6
-
-
 
 
 
@@ -749,7 +739,7 @@ repeat until theta >= 360;
 
 \ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 : .graph  noop ;
-defer display
+defer display   ' noop is display
 : orbit noop ;
 
 : graph-orbit        ( -- )         0 to trouble
@@ -764,25 +754,9 @@ defer display
 
 
 : simpleorbit        ( -- )         \ does nothing in this version of planetarium
-     \   ['] .graph IS DISPLAY
-                                    \ graph-init        \     \ white black  fgbg!
-        orbit   ;
+                    orbit   ;
 
-   \ graph-init
-
-\ : orbit    ( --)   graph-orbit      ;
-
-((
-cr
-.(  --->  DO     orbit  , to see the moon and the Earth orbits )   cr
-.(  --->  DO     circe  or circe2   , to see a circular orbiting demo ) cr
-))
-
-\ : centerscr      xmax  2/   s>f  ymax  2/  s>f  ;
-\ : testmoon     centerscr  moon  .object   ;  \ does nothing in this version of planetarium
-
-
-
+ 
 
 planetarium
 
