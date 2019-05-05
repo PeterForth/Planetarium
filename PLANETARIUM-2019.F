@@ -17,7 +17,7 @@
 decimal
 
 
-NEEDS SUPPORT-PLANETARIUM2.F
+\ NEEDS SUPPORT-PLANETARIUM2.F
 0 value trouble
 
 
